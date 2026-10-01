@@ -1,0 +1,40 @@
+services:
+  # Serviço 1: Banco de Dados
+  db:
+    image: postgres:15-alpine
+    container_name: meu_postgres_luizfelipe
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: senha_super_secreta
+      POSTGRES_DB: banco_teste
+    volumes:
+      - pg_dados:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  # Serviço 2: Aplicação Node.js
+  app:
+    build: .
+    container_name: minha_api_node_luizfelipe
+    restart: on-failure # Reinicia se falhar (ex: se o banco ainda estiver subindo)
+    ports:
+    - "8009:8080"  # <-- troque 8050 pela porta que o professor te passou
+    environment:
+      DB_HOST: db # Nome do serviço do banco na rede do Compose
+      DB_USER: admin
+      DB_PASSWORD: senha_super_secreta
+      DB_NAME: banco_teste
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+# Definição do Volume para persistência
+volumes:
+  pg_dados:
+
+# Definição da Rede isolada
+networks:
+  app-network:
+    driver: bridge
