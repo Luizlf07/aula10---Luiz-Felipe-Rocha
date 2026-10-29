@@ -1,0 +1,241 @@
+### Data: 2026-10-29 12:34:35 UTC | Release estável: v1.0.0
+
+=== Passo 1: Deploy da versão estável (v1.0.0) ===
+ db Pulling 
+ app Pulling 
+ 6a0ac1617861 Pulling fs layer 
+ 4feea04c1543 Pulling fs layer 
+ b2cbbfe903b0 Pulling fs layer 
+ fff4e2c1b189 Pulling fs layer 
+ b538ab2ada8c Pulling fs layer 
+ a0ab23f2e221 Pulling fs layer 
+ 9581dacc46d1 Pulling fs layer 
+ e3df676007f6 Pulling fs layer 
+ b538ab2ada8c Waiting 
+ 9581dacc46d1 Waiting 
+ e3df676007f6 Waiting 
+ a0ab23f2e221 Waiting 
+ fff4e2c1b189 Waiting 
+ 7b229517ed22 Pulling fs layer 
+ d92561188999 Pulling fs layer 
+ 2426486fff43 Pulling fs layer 
+ 796aa2ea6e82 Pulling fs layer 
+ 62e6c0b40dc5 Pulling fs layer 
+ b45adcefc576 Pulling fs layer 
+ 5e01b824d667 Pulling fs layer 
+ f5c2ad449ad4 Pulling fs layer 
+ 1d71d4420688 Pulling fs layer 
+ 6544c05d46c0 Pulling fs layer 
+ 7066f1965fb9 Pulling fs layer 
+ 62e6c0b40dc5 Waiting 
+ 7b229517ed22 Waiting 
+ d92561188999 Waiting 
+ b45adcefc576 Waiting 
+ 5e01b824d667 Waiting 
+ 6544c05d46c0 Waiting 
+ f5c2ad449ad4 Waiting 
+ 1d71d4420688 Waiting 
+ 7066f1965fb9 Waiting 
+ 796aa2ea6e82 Waiting 
+ 2426486fff43 Waiting 
+ b2cbbfe903b0 Downloading [>                                                  ]  13.78kB/1.262MB
+ 6a0ac1617861 Downloading [>                                                  ]  39.66kB/3.864MB
+ 4feea04c1543 Downloading [>                                                  ]  442.4kB/43.23MB
+ b2cbbfe903b0 Verifying Checksum 
+ b2cbbfe903b0 Download complete 
+ 6a0ac1617861 Downloading [==================================================>]  3.864MB/3.864MB
+ 6a0ac1617861 Download complete 
+ 6a0ac1617861 Extracting [>                                                  ]  65.54kB/3.864MB
+ 4feea04c1543 Downloading [======================================>            ]  32.92MB/43.23MB
+ 4feea04c1543 Verifying Checksum 
+ 4feea04c1543 Download complete 
+ 6a0ac1617861 Extracting [==================================================>]  3.864MB/3.864MB
+ 6a0ac1617861 Extracting [==================================================>]  3.864MB/3.864MB
+ 6a0ac1617861 Pull complete 
+ 4feea04c1543 Extracting [>                                                  ]  458.8kB/43.23MB
+ fff4e2c1b189 Downloading [==================================================>]     445B/445B
+ fff4e2c1b189 Verifying Checksum 
+ fff4e2c1b189 Download complete 
+ b538ab2ada8c Downloading [==================================================>]     125B/125B
+ b538ab2ada8c Verifying Checksum 
+ b538ab2ada8c Download complete 
+ 4feea04c1543 Extracting [=============>                                     ]  11.93MB/43.23MB
+ a0ab23f2e221 Downloading [=>                                                 ]  1.378kB/42.73kB
+ a0ab23f2e221 Verifying Checksum 
+ a0ab23f2e221 Download complete 
+ 4feea04c1543 Extracting [============================>                      ]  24.31MB/43.23MB
+ 9581dacc46d1 Downloading [>                                                  ]  9.611kB/823.7kB
+ e3df676007f6 Download complete 
+ 4feea04c1543 Extracting [========================================>          ]  34.87MB/43.23MB
+ 9581dacc46d1 Downloading [==================================================>]  823.7kB/823.7kB
+ 9581dacc46d1 Verifying Checksum 
+ 9581dacc46d1 Download complete 
+ 7b229517ed22 Downloading [>                                                  ]  48.55kB/3.853MB
+ 7b229517ed22 Verifying Checksum 
+ 7b229517ed22 Download complete 
+ 7b229517ed22 Extracting [>                                                  ]  65.54kB/3.853MB
+ 4feea04c1543 Extracting [==============================================>    ]  40.37MB/43.23MB
+ 7b229517ed22 Extracting [==================================================>]  3.853MB/3.853MB
+ d92561188999 Downloading [==================================================>]     968B/968B
+ d92561188999 Verifying Checksum 
+ d92561188999 Download complete 
+ 7b229517ed22 Pull complete 
+ d92561188999 Extracting [==================================================>]     968B/968B
+ d92561188999 Extracting [==================================================>]     968B/968B
+ 2426486fff43 Downloading [>                                                  ]  15.79kB/900kB
+ 2426486fff43 Downloading [==================================================>]    900kB/900kB
+ 2426486fff43 Verifying Checksum 
+ 2426486fff43 Download complete 
+ 796aa2ea6e82 Downloading [==================================================>]     170B/170B
+ 796aa2ea6e82 Verifying Checksum 
+ 796aa2ea6e82 Download complete 
+ 4feea04c1543 Extracting [================================================>  ]  41.75MB/43.23MB
+ 62e6c0b40dc5 Downloading [==================================================>]     116B/116B
+ 62e6c0b40dc5 Download complete 
+ 5e01b824d667 Downloading [==================>                                ]  3.501kB/9.485kB
+ 5e01b824d667 Downloading [==================================================>]  9.485kB/9.485kB
+ 5e01b824d667 Verifying Checksum 
+ 5e01b824d667 Download complete 
+ 4feea04c1543 Extracting [=================================================> ]  42.66MB/43.23MB
+ b45adcefc576 Downloading [>                                                  ]  531.8kB/110.5MB
+ f5c2ad449ad4 Downloading [==================================================>]     128B/128B
+ f5c2ad449ad4 Verifying Checksum 
+ f5c2ad449ad4 Download complete 
+ 4feea04c1543 Extracting [==================================================>]  43.23MB/43.23MB
+ 1d71d4420688 Downloading [==================================================>]     169B/169B
+ 1d71d4420688 Verifying Checksum 
+ 1d71d4420688 Download complete 
+ b45adcefc576 Downloading [============>                                      ]  27.73MB/110.5MB
+ 6544c05d46c0 Downloading [============================>                      ]  3.501kB/6.106kB
+ 6544c05d46c0 Downloading [==================================================>]  6.106kB/6.106kB
+ 6544c05d46c0 Verifying Checksum 
+ 6544c05d46c0 Download complete 
+ b45adcefc576 Downloading [==================================>                ]  75.21MB/110.5MB
+ 7066f1965fb9 Downloading [==================================================>]     182B/182B
+ 7066f1965fb9 Verifying Checksum 
+ 7066f1965fb9 Download complete 
+ b45adcefc576 Download complete 
+ 4feea04c1543 Pull complete 
+ d92561188999 Pull complete 
+ b2cbbfe903b0 Extracting [=>                                                 ]  32.77kB/1.262MB
+ 2426486fff43 Extracting [=>                                                 ]  32.77kB/900kB
+ 2426486fff43 Extracting [==================================================>]    900kB/900kB
+ 2426486fff43 Extracting [==================================================>]    900kB/900kB
+ b2cbbfe903b0 Extracting [==================================================>]  1.262MB/1.262MB
+ b2cbbfe903b0 Extracting [==================================================>]  1.262MB/1.262MB
+ 2426486fff43 Pull complete 
+ 796aa2ea6e82 Extracting [==================================================>]     170B/170B
+ 796aa2ea6e82 Extracting [==================================================>]     170B/170B
+ b2cbbfe903b0 Pull complete 
+ fff4e2c1b189 Extracting [==================================================>]     445B/445B
+ fff4e2c1b189 Extracting [==================================================>]     445B/445B
+ 796aa2ea6e82 Pull complete 
+ 62e6c0b40dc5 Extracting [==================================================>]     116B/116B
+ 62e6c0b40dc5 Extracting [==================================================>]     116B/116B
+ fff4e2c1b189 Pull complete 
+ 62e6c0b40dc5 Pull complete 
+ b538ab2ada8c Extracting [==================================================>]     125B/125B
+ b538ab2ada8c Extracting [==================================================>]     125B/125B
+ b45adcefc576 Extracting [>                                                  ]  557.1kB/110.5MB
+ b538ab2ada8c Pull complete 
+ a0ab23f2e221 Extracting [======================================>            ]  32.77kB/42.73kB
+ a0ab23f2e221 Extracting [==================================================>]  42.73kB/42.73kB
+ a0ab23f2e221 Pull complete 
+ 9581dacc46d1 Extracting [=>                                                 ]  32.77kB/823.7kB
+ b45adcefc576 Extracting [===>                                               ]  6.685MB/110.5MB
+ 9581dacc46d1 Extracting [===============================================>   ]  786.4kB/823.7kB
+ 9581dacc46d1 Extracting [==================================================>]  823.7kB/823.7kB
+ b45adcefc576 Extracting [========>                                          ]  17.83MB/110.5MB
+ b45adcefc576 Extracting [=============>                                     ]  29.52MB/110.5MB
+ b45adcefc576 Extracting [==================>                                ]  41.22MB/110.5MB
+ b45adcefc576 Extracting [========================>                          ]  53.48MB/110.5MB
+ 9581dacc46d1 Pull complete 
+ e3df676007f6 Extracting [==================================================>]     933B/933B
+ e3df676007f6 Extracting [==================================================>]     933B/933B
+ b45adcefc576 Extracting [===========================>                       ]  61.28MB/110.5MB
+ b45adcefc576 Extracting [=================================>                 ]  72.97MB/110.5MB
+ b45adcefc576 Extracting [====================================>              ]  80.77MB/110.5MB
+ b45adcefc576 Extracting [=====================================>             ]     83MB/110.5MB
+ b45adcefc576 Extracting [======================================>            ]  84.67MB/110.5MB
+ b45adcefc576 Extracting [=========================================>         ]   90.8MB/110.5MB
+ b45adcefc576 Extracting [===========================================>       ]  96.93MB/110.5MB
+ b45adcefc576 Extracting [=================================================> ]  109.7MB/110.5MB
+ b45adcefc576 Extracting [==================================================>]  110.5MB/110.5MB
+ e3df676007f6 Pull complete 
+ app Pulled 
+ b45adcefc576 Pull complete 
+ 5e01b824d667 Extracting [==================================================>]  9.485kB/9.485kB
+ 5e01b824d667 Extracting [==================================================>]  9.485kB/9.485kB
+ 5e01b824d667 Pull complete 
+ f5c2ad449ad4 Extracting [==================================================>]     128B/128B
+ f5c2ad449ad4 Extracting [==================================================>]     128B/128B
+ f5c2ad449ad4 Pull complete 
+ 1d71d4420688 Extracting [==================================================>]     169B/169B
+ 1d71d4420688 Extracting [==================================================>]     169B/169B
+ 1d71d4420688 Pull complete 
+ 6544c05d46c0 Extracting [==================================================>]  6.106kB/6.106kB
+ 6544c05d46c0 Extracting [==================================================>]  6.106kB/6.106kB
+ 6544c05d46c0 Pull complete 
+ 7066f1965fb9 Extracting [==================================================>]     182B/182B
+ 7066f1965fb9 Extracting [==================================================>]     182B/182B
+ 7066f1965fb9 Pull complete 
+ db Pulled 
+ Network aula10---luiz-felipe-rocha_app-network  Creating
+ Network aula10---luiz-felipe-rocha_app-network  Created
+ Volume "aula10---luiz-felipe-rocha_pg_dados_homolog"  Creating
+ Volume "aula10---luiz-felipe-rocha_pg_dados_homolog"  Created
+ Container meu_postgres_luizfelipe  Creating
+ Container meu_postgres_luizfelipe  Created
+ Container minha_api_node_luizfelipe  Creating
+ Container minha_api_node_luizfelipe  Created
+ Container meu_postgres_luizfelipe  Starting
+ Container meu_postgres_luizfelipe  Started
+ Container meu_postgres_luizfelipe  Waiting
+ Container meu_postgres_luizfelipe  Healthy
+ Container minha_api_node_luizfelipe  Starting
+ Container minha_api_node_luizfelipe  Started
+ Container meu_postgres_luizfelipe  Waiting
+ Container minha_api_node_luizfelipe  Waiting
+ Container meu_postgres_luizfelipe  Healthy
+ Container minha_api_node_luizfelipe  Healthy
+NAME                        IMAGE                                      COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+meu_postgres_luizfelipe     postgres:15-alpine                         "docker-entrypoint.s…"   db        12 seconds ago   Up 11 seconds (healthy)   5432/tcp
+minha_api_node_luizfelipe   ghcr.io/luizlf07/minha-api-devops:v1.0.0   "docker-entrypoint.s…"   app       12 seconds ago   Up 5 seconds (healthy)    0.0.0.0:8009->8080/tcp, [::]:8009->8080/tcp
+Imagem em execução: ghcr.io/luizlf07/minha-api-devops:v1.0.0
+{"status":"UP"}
+
+=== Passo 2: Simulação de Falha no Deploy (IMAGE_TAG=v999-erro) ===
+IMAGE_TAG=v999-erro
+ app Pulling 
+ app Error manifest unknown
+Error response from daemon: manifest unknown
+>>> FALHA: a imagem v999-erro não existe no GHCR
+ app Pulling 
+ app Error manifest unknown
+Error response from daemon: manifest unknown
+>>> FALHA: deploy da versão v999-erro abortado
+NAME                        IMAGE                                      COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+meu_postgres_luizfelipe     postgres:15-alpine                         "docker-entrypoint.s…"   db        13 seconds ago   Up 12 seconds (healthy)   5432/tcp
+minha_api_node_luizfelipe   ghcr.io/luizlf07/minha-api-devops:v1.0.0   "docker-entrypoint.s…"   app       13 seconds ago   Up 7 seconds (healthy)    0.0.0.0:8009->8080/tcp, [::]:8009->8080/tcp
+
+=== Passo 3: Execução do Rollback para a Versão Estável (v1.0.0) ===
+IMAGE_TAG=v1.0.0
+ app Pulling 
+ app Pulled 
+ Container meu_postgres_luizfelipe  Running
+ Container minha_api_node_luizfelipe  Recreate
+ Container minha_api_node_luizfelipe  Recreated
+ Container meu_postgres_luizfelipe  Waiting
+ Container meu_postgres_luizfelipe  Healthy
+ Container minha_api_node_luizfelipe  Starting
+ Container minha_api_node_luizfelipe  Started
+ Container meu_postgres_luizfelipe  Waiting
+ Container minha_api_node_luizfelipe  Waiting
+ Container meu_postgres_luizfelipe  Healthy
+ Container minha_api_node_luizfelipe  Healthy
+NAME                        IMAGE                                      COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+meu_postgres_luizfelipe     postgres:15-alpine                         "docker-entrypoint.s…"   db        30 seconds ago   Up 29 seconds (healthy)   5432/tcp
+minha_api_node_luizfelipe   ghcr.io/luizlf07/minha-api-devops:v1.0.0   "docker-entrypoint.s…"   app       16 seconds ago   Up 5 seconds (healthy)    0.0.0.0:8009->8080/tcp, [::]:8009->8080/tcp
+Imagem em execução: ghcr.io/luizlf07/minha-api-devops:v1.0.0
+{"status":"UP"}
+<h1>Comunicação com sucesso!</h1><p>Data do Banco de Dados: Thu Oct 29 2026 12:35:11 GMT+0000 (Coordinated Universal Time)</p>
