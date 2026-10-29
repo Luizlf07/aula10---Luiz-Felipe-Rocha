@@ -1,0 +1,45 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: meu_postgres_luizfelipe
+    restart: always
+    # Segredos vêm do arquivo .env (fora do Git) — nada de senha no código
+    environment:
+      POSTGRES_USER: ${DB_USER:-admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Defina DB_PASSWORD no arquivo .env}
+      POSTGRES_DB: ${DB_NAME:-banco_teste}
+    volumes:
+      - pg_dados_homolog:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    networks:
+      - app-network
+
+  app:
+    # Consome a imagem do GHCR e a tag dinâmica gerada no .env pelo pipeline
+    image: ${REGISTRY_IMAGE:-ghcr.io/usuario/minha-api-devops}:${IMAGE_TAG:-latest}
+    container_name: minha_api_node_luizfelipe
+    restart: on-failure
+    ports:
+      - "8009:8080"   # porta definida pelo professor
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: ${DB_USER:-admin}
+      DB_PASSWORD: ${DB_PASSWORD:?Defina DB_PASSWORD no arquivo .env}
+      DB_NAME: ${DB_NAME:-banco_teste}
+    depends_on:
+      db:
+        condition: service_healthy   # só sobe a API quando o Postgres estiver pronto
+    networks:
+      - app-network
+
+volumes:
+  pg_dados_homolog:
+
+networks:
+  app-network:
+    driver: bridge
