@@ -88,6 +88,13 @@ jobs:
           # O GHCR exige nome de imagem em minúsculas
           REGISTRY_IMAGE="${REGISTRY}/${IMAGE_NAME,,}"
 
+          # Usa o secret DB_PASSWORD se existir; senão gera uma senha aleatória
+          # para este ambiente efêmero. Em nenhum caso há senha no código.
+          if [ -z "${DB_PASSWORD}" ]; then
+            DB_PASSWORD="$(openssl rand -hex 16)"
+          fi
+          echo "::add-mask::${DB_PASSWORD}"
+
           {
             echo "REGISTRY_IMAGE=${REGISTRY_IMAGE}"
             echo "IMAGE_TAG=${IMAGE_TAG}"
@@ -115,3 +122,86 @@ jobs:
       - name: Logs em caso de falha
         if: failure()
         run: docker compose logs
+
+  # Roteiro da seção 5 da atividade, executado automaticamente a cada release (tag v*.*.*):
+  # sobe a versão estável, simula um deploy quebrado e faz o rollback com Docker Compose.
+  simulacao-rollback:
+    name: Simulação de Falha e Rollback
+    needs: deploy-homologacao
+    if: github.ref_type == 'tag'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Autenticação no GHCR (necessária para o pull)
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Gerar .env com a versão estável
+        env:
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        run: |
+          if [ -z "${DB_PASSWORD}" ]; then DB_PASSWORD="$(openssl rand -hex 16)"; fi
+          echo "::add-mask::${DB_PASSWORD}"
+          {
+            echo "REGISTRY_IMAGE=${REGISTRY}/${IMAGE_NAME,,}"
+            echo "IMAGE_TAG=${GITHUB_REF_NAME}"
+            echo "DB_USER=admin"
+            echo "DB_NAME=banco_teste"
+            echo "DB_PASSWORD=${DB_PASSWORD}"
+          } > .env
+
+      - name: Executar roteiro de falha e rollback
+        run: |
+          STABLE_TAG="${GITHUB_REF_NAME}"
+          {
+            echo "### Data: $(date -u '+%Y-%m-%d %H:%M:%S UTC') | Release estável: ${STABLE_TAG}"
+            echo
+            echo "=== Passo 1: Deploy da versão estável (${STABLE_TAG}) ==="
+            docker compose pull
+            docker compose up -d --wait
+            docker compose ps
+            echo "Imagem em execução: $(docker inspect --format '{{.Config.Image}}' minha_api_node_luizfelipe)"
+            curl -s http://localhost:8009/health; echo
+            echo
+            echo "=== Passo 2: Simulação de Falha no Deploy (IMAGE_TAG=v999-erro) ==="
+            sed -i 's/^IMAGE_TAG=.*/IMAGE_TAG=v999-erro/' .env
+            grep '^IMAGE_TAG=' .env
+            docker compose pull app || echo ">>> FALHA: a imagem v999-erro não existe no GHCR"
+            docker compose up -d app || echo ">>> FALHA: deploy da versão v999-erro abortado"
+            docker compose ps
+            echo
+            echo "=== Passo 3: Execução do Rollback para a Versão Estável (${STABLE_TAG}) ==="
+            sed -i "s/^IMAGE_TAG=.*/IMAGE_TAG=${STABLE_TAG}/" .env
+            grep '^IMAGE_TAG=' .env
+            docker compose pull app
+            docker compose up -d --force-recreate --wait app
+            docker compose ps
+            echo "Imagem em execução: $(docker inspect --format '{{.Config.Image}}' minha_api_node_luizfelipe)"
+            curl -s http://localhost:8009/health; echo
+            curl -s http://localhost:8009/; echo
+          } 2>&1 | tee log-rollback.txt
+
+          {
+            echo '## Log da simulação de falha e rollback'
+            echo '```text'
+            cat log-rollback.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Validar que o rollback restaurou a API
+        run: |
+          curl -fsS http://localhost:8009/health | grep '"UP"'
+          docker inspect --format '{{.Config.Image}}' minha_api_node_luizfelipe | grep ":${GITHUB_REF_NAME}$"
+
+      - name: Publicar log como artefato (evidência)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: log-rollback-${{ github.ref_name }}
+          path: log-rollback.txt

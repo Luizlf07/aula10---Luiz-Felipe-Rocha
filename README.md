@@ -23,9 +23,9 @@ orquestração com Docker Compose e CD publicando no GHCR com versionamento sem�
 ## Passo a passo
 
 ### 1. Integrar o código na `main`
-1. Antes do merge, crie o segredo do banco:
-   **Settings → Secrets and variables → Actions → New repository secret**
-   - Nome: `DB_PASSWORD` — Valor: uma senha qualquer (ex.: `MinhaSenha2026`)
+1. (Opcional) Crie o segredo do banco em **Settings → Secrets and variables → Actions → New repository secret**,
+   nome `DB_PASSWORD`. Se ele não existir, o pipeline gera uma senha aleatória para o ambiente efêmero —
+   em nenhum caso há senha no código.
 2. Abra o Pull Request da branch `feat/aula14-pipeline-cicd` → o CI roda no PR (check **Execução de Testes**).
 3. Com o check verde, faça o **merge** na `main`.
 4. Aba **Actions**: o CI e o CD devem ficar verdes. 📸 *Print para a evidência de CI e CD.*
@@ -58,7 +58,13 @@ git push origin v1.0.0
 ```
 Espere o CD ficar verde. No GHCR aparecerão as tags `v1.0.0` e `1.0.0`. 📸 *Print.*
 
-### 5. Rodar localmente e simular falha + rollback
+### 5. Simular falha + rollback
+
+**Automático:** a cada tag `v*.*.*` o job **Simulação de Falha e Rollback** do CD executa o roteiro abaixo
+no GitHub Actions. O log aparece no resumo da execução (aba Actions) e fica salvo como artefato
+`log-rollback-v1.0.0`. Uma cópia está em [`evidencias/log-rollback.txt`](evidencias/log-rollback.txt).
+
+**Local (opcional):**
 Requer Docker Desktop. No Windows use o **Git Bash**.
 ```bash
 cp .env.example .env
